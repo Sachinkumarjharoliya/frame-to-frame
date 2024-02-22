@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two Frame Example</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
+<style>
+  
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .frame {
+        width: 45%;
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin: 10px;
+    }
+
+
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .slider {
+        max-width: 100%;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="frame" id="frame1">
+        <header>
+            <h1>Header with Logo</h1>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu7fwchel8UQ5whs0wlB2FbfkB1aKcSP03cQ&usqp=CAU" alt="Logo">
+        </header>
+        <select id="imageSelector">
+            <option value="https://via.placeholder.com/150">Placeholder Image 1</option>
+            <option value="https://via.placeholder.com/200">Placeholder Image 2</option>
+            <option value="https://via.placeholder.com/250">Placeholder Image 3</option>
+        </select>
+    </div>
+
+
+    <div class="frame" id="frame2">
+        <header>
+            <h1>Header without Logo</h1>
+        </header>
+        <img id="secondFrameImage" src="" alt="Second Frame Image">
+    </div>
+</div>
+
+<script>
+    // Function to update the image in the second frame based on dropdown selection
+    function updateSecondFrameImage() {
+        var dropdown = document.getElementById('imageSelector');
+        var selectedImageSrc = dropdown.value;
+        var secondFrameImage = document.getElementById('secondFrameImage');
+        secondFrameImage.src = selectedImageSrc;
+    }
+
+    // Attach event listener to the dropdown to trigger the image update
+    document.getElementById('imageSelector').addEventListener('change', updateSecondFrameImage);
+</script>
+
+</body>
+</html>
